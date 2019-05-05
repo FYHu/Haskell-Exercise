@@ -3,11 +3,11 @@ import Data.Char
 import Data.List
 
 
-myWords :: String -> [ String ]
-myWords [ ] = [ ]
-myWords xxs @ (x : xs) | isSpace x = myWords xs
-                         | otherwise = word : myWords rest
-                         where (word, rest) = break isSpace xxs
+words :: String -> [ String ]
+words [ ] = [ ]
+words xxs @ (x : xs) | isSpace x = words xs
+                     | otherwise = word : words rest
+                      where (word, rest) = break isSpace xxs
 
 unWords :: [ String ] -> String
 unWords [ ] = [ ]
