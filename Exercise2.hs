@@ -33,4 +33,10 @@ title (w : words) = (capitalised w) : ( titleLower words)
     where titleLower [ ] = [ ]
           titleLower (w : words) = (capLong w) : (titleLower words)
 
-          
+
+
+isort :: Ord a => [a] -> [a]   
+isort [] = []
+isort (x:xs) = isert x (isort xs)
+    where isert x [] = [x]
+          isert x (y:ys) = if x <= y then x:(y:ys) else y:(isert x ys)
